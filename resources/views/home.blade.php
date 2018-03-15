@@ -4,7 +4,7 @@
     <div class="row">
          <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Recently added commandessimples</div>
+                <div class="panel-heading">Recently added</div>
 
                 <div class="panel-body table-responsive">
                     <table class="table table-bordered table-striped ajaxTable">

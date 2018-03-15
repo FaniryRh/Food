@@ -29,6 +29,6 @@ class IndexController extends Controller
     {
         $role = Auth::getUser();
         
-        return view('index')->with(['role_id' => $role]);
+        return view('site.index')->with(['role_id' => $role]);
     }
 }
