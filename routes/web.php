@@ -1,5 +1,7 @@
 <?php
 Route::get('/', function () { return redirect('/admin/home'); });
+Route::get('/index', function () { return redirect('/index'); });
+Route::get('/index', 'IndexController@index_site');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
