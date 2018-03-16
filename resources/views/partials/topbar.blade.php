@@ -22,26 +22,38 @@
         
 
                 <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <li class="dropdown languages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        {{ strtoupper(\App::getLocale()) }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header"></li>
-                        <ul class="menu language-menu">
-                            @foreach(config('app.languages') as $short => $title)
-                                <li class="language-link">
-                                    <a href="{{ route('admin.language', $short) }}">
-                                        {{ $title }} ({{ strtoupper($short) }})
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                        <li class="footer"></li>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown languages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                {{ strtoupper(\App::getLocale()) }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"></li>
+                                <ul class="menu language-menu">
+                                    @foreach(config('app.languages') as $short => $title)
+                                        <li class="language-link">
+                                            <a href="{{ route('admin.language', $short) }}">
+                                                {{ $title }} ({{ strtoupper($short) }})
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <li class="footer"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ url('/index') }}" >
+                                Visiter le site
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" >
+                                <?= Auth::getUser()->name; ?>
+                            </a>
+                        </li>
+
+
                     </ul>
-                </li>
-            </ul>
         </div>
     </nav>
 </header>
