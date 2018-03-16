@@ -20,7 +20,31 @@
             <li class=""><a href="">Gallerie</a></li>
             <li class=""><a href="">Contacts</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        {{ strtoupper(\App::getLocale()) }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header"></li>
+                        <ul class="">
+
+                            @foreach(config('app.languages') as $short => $title)
+                                <li>
+                                    <a href="{{ route('admin.language', $short) }}">
+                                        {{ $title }} ({{ strtoupper($short) }})
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                        <li class="footer"></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" style="margin-right: auto; ">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::getUser()->name}}<span class="caret"></span></a>
               <ul class="dropdown-menu" style=" float: left; ">
@@ -44,6 +68,8 @@
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
           </form>
+
+
         </div>
       </div>
     </nav>
