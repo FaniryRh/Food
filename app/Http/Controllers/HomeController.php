@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,12 @@ class HomeController extends Controller
         $comptes = \App\Compte::latest()->limit(5)->get(); 
         $users = \App\User::latest()->limit(5)->get(); 
 
-        return view('home', compact( 'commandessimples', 'commandesaveccomptes', 'comptes', 'users' ));
+        //return view('home', compact( 'commandessimples', 'commandesaveccomptes', 'comptes', 'users' ));
+
+        if(Auth::getUser()->role_id == 2)
+            return view('index', compact( 'commandessimples', 'commandesaveccomptes', 'comptes', 'users' ));
+        else{
+            return view('home', compact( 'commandessimples', 'commandesaveccomptes', 'comptes', 'users' ));
+        };
     }
 }
